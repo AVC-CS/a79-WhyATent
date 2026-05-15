@@ -33,19 +33,25 @@ void insertVector(vector<int> &number, int usernum)
     for (auto it = number.begin(); it != number.end(); it++){
         if (usernum < *it){
             number.insert(it, usernum);
-            break;
+            return;
         }
     }
+    number.push_back(usernum);
 }
 
 int deleteVector(vector<int> &number, int usernum)
 {
+    int cnt = 0;
     for (auto it = number.begin(); it != number.end(); it++){
         if (*it == usernum){
+            cnt++;
             number.erase(it);
         }
     }
-    return 0;
+    if (cnt > 0){
+        return cnt;
+    }
+    return -1;
 }
 
 int getInput(void)
