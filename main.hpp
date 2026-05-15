@@ -42,10 +42,12 @@ void insertVector(vector<int> &number, int usernum)
 int deleteVector(vector<int> &number, int usernum)
 {
     int cnt = 0;
-    for (auto it = number.begin(); it != number.end(); it++){
+    for (auto it = number.begin(); it != number.end();){
         if (*it == usernum){
             cnt++;
             number.erase(it);
+        } else {
+            it++;
         }
     }
     if (cnt > 0){
